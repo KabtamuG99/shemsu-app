@@ -1,0 +1,33 @@
+
+.inventory-list-container {
+  width: 40%;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-list-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.inventory-list {
+  list-style: none;
+  padding: 0;
+}
+
+.inventory-item {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-item h3 {
+  margin-top: 0;
+}
