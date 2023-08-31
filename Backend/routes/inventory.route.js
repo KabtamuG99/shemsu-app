@@ -4,7 +4,7 @@ const inventoryAdder = require("../controller/inventory.controller");
 
 router.post("/add-inventory", inventoryAdder.addinventory);
 router.get("/all-inventory", inventoryAdder.allinventory);
-router.get("/:id", inventoryAdder.getinventorybyid);
+router.get("/single-inventory/:id", inventoryAdder.getinventorybyid);
 
 
 module.exports = router;

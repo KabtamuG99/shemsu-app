@@ -21,7 +21,8 @@ let inventory = `CREATE TABLE IF NOT EXISTS inventory(
     inventory_name VARCHAR(255) NOT NULL,
     quantity INT NOT NULL,
     inventory_added_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    inventory_price INT NOT NULL,
+    purchasing_price INT NOT NULL,
+    selling_price INT NOT NULL,
     post_id varchar(255) not null,
     PRIMARY KEY (inventory_id),
     UNIQUE KEY (post_id)

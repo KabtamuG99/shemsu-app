@@ -1,0 +1,66 @@
+.inventory-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.detail-heading {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.inventory-detail {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
+  background-color: #fff;
+}
+
+.inventory-name {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.inventory-info {
+  margin-bottom: 5px;
+}
+/* Add this to your InventoryDetail.css */
+
+.quantity-updater {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.quantity-updater label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.quantity-updater input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1;
+  max-width: 100px;
+}
+
+.quantity-updater button {
+  background-color:black;
+  color: #fff;
+  border: none;
+ margin-left: 10px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.quantity-updater button:hover {
+  background-color: #0056b3;
+}
+

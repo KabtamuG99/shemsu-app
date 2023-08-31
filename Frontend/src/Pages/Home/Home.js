@@ -16,6 +16,10 @@ function Home() {
        e.preventDefault();
        navigate("/InventoryList");
      };
+    //  const singleInv = (e) => {
+    //    e.preventDefault();
+    //    navigate("/singleItem");
+    //  };
      const Return = (e) =>{
         navigate("/");
      }
@@ -33,6 +37,9 @@ function Home() {
         <button className="button" onClick={listInve}>
           avilable inventory
         </button>
+        {/* <button className="button" onClick={singleInv}>
+          single inventory
+        </button> */}
         <button className="button" onClick={Return}>
           Return
         </button>

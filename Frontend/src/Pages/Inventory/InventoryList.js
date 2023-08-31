@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./invetoryList.css"
+import { Link } from "react-router-dom";
+import "./invetoryList.css";
+
 
 const InventoryList = () => {
   const [inventoryData, setInventoryData] = useState([]);
-
-
 
   useEffect(() => {
     // Fetch inventory data from the server
@@ -17,9 +17,8 @@ const InventoryList = () => {
       .catch((error) => {
         console.error("Error fetching inventory data:", error);
       });
-    }, []);
-      
-    console.log(inventoryData);
+  }, []);
+
   return (
     <div className="inventory-list-container">
       <h2>Inventory On hand</h2>
@@ -30,8 +29,15 @@ const InventoryList = () => {
             <p>Quantity: {item.quantity}</p>
             <p>Price: {item.inventory_price}</p>
             <p>
-              Added Date: {new Date(item.inventory_added_date).toLocaleDateString()}
+              Added Date:
+              {new Date(item.inventory_added_date).toLocaleDateString()}
             </p>
+            <Link
+              to={`/single-inventory/${item.post_id}`}
+              className="view-details-link"
+            >
+              View Details
+            </Link>
           </li>
         ))}
       </ul>
