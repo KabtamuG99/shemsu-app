@@ -6,7 +6,8 @@ function AddInventory() {
   const [inventoryData, setInventoryData] = useState({
     inventory_name: "",
     quantity: 0,
-    inventory_price: 0,
+    purchasing_price: 0,
+    selling_price: 0,
     post_id: "",
   });
   const navigate = useNavigate()
@@ -68,11 +69,22 @@ function AddInventory() {
           />
         </div>
         <div className="form-group">
-          <label>Inventory Price:</label>
+          <label>Purchasing Price :</label>
           <input
             type="number"
-            name="inventory_price"
-            value={inventoryData.inventory_price}
+            name="purchasing_price"
+            value={inventoryData.purchasing_price}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Selling Price:</label>
+          <input
+            type="number"
+            name="selling_price"
+            value={inventoryData.selling_price}
             onChange={handleChange}
             required
           />

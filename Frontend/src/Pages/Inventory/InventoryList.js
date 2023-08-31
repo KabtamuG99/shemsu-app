@@ -27,7 +27,7 @@ const InventoryList = () => {
           <li key={item.inventory_id} className="inventory-item">
             <h3>{item.inventory_name}</h3>
             <p>Quantity: {item.quantity}</p>
-            <p>Price: {item.inventory_price}</p>
+            <p>Selling price: {item.selling_price}</p>
             <p>
               Added Date:
               {new Date(item.inventory_added_date).toLocaleDateString()}

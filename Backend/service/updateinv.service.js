@@ -19,10 +19,10 @@ async function quantityUpdator(id, quantity) {
   }
 }
 
-async function priceUpdator(id, inventory_price) {
+async function priceUpdator(id, selling_price) {
   try {
-    const query = `UPDATE inventory SET inventory_price = ? WHERE post_id = ?`;
-    const [rows] = await pool.query(query, [inventory_price, id]);
+    const query = `UPDATE inventory SET selling_price = ? WHERE post_id = ?`;
+    const [rows] = await pool.query(query, [selling_price, id]);
     console.log(rows);
 
     if (rows.affectedRows === 1) {

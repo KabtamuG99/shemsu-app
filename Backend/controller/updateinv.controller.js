@@ -27,10 +27,10 @@ async function quantityUpdator(req, res) {
 
 async function priceUpdator(req, res) {
     const id = req.params.id;
-    const { inventory_price } = req.body; // Get quantity and price from the request body
+    const { selling_price } = req.body; // Get quantity and price from the request body
     console.log("updator" + id);
   try {
-    const adjust = await serviceupdator.priceUpdator(id, inventory_price);
+    const adjust = await serviceupdator.priceUpdator(id, selling_price);
 
     if (!adjust) {
       res.status(400).json({ error: "Failed to update inventory_price" });

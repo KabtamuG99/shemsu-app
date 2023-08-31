@@ -36,15 +36,17 @@ const InventoryDetail = () => {
   const handlePriceUpdate = () => {
     axios
       .put(`http://localhost:4000/update-price/${id}`, {
-        inventory_price: newPrice,
+        selling_price: newPrice,
       })
-      
+
       .catch((error) => {
         console.error("Error updating quantity:", error);
       });
       alert("Price updated succesfuly");
     navigate('/');
   };
+  console.log(newQuantity);
+    console.log(newPrice);
   return (
     <div className="inventory-detail-container">
       <h2 className="detail-heading">Inventory Details</h2>
@@ -53,7 +55,12 @@ const InventoryDetail = () => {
           Inventory Name: {inventoryData.inventory_name}
         </h3>
         <p className="inventory-info">Quantity: {inventoryData.quantity}</p>
-        <p className="inventory-info">Price: {inventoryData.inventory_price}</p>
+        <p className="inventory-info">
+          Purchasing Price: {inventoryData.purchasing_price}
+        </p>
+        <p className="inventory-info">
+          Selling Price: {inventoryData.selling_price}
+        </p>
         <p className="inventory-info">ID: {inventoryData.post_id}</p>
         <p className="inventory-info">
           Added Date:
@@ -74,7 +81,9 @@ const InventoryDetail = () => {
         <button onClick={handleQuantityUpdate}>Update Quantity</button>
       </div>
 
-      <p className="inventory-info">Price: {inventoryData.inventory_price}</p>
+      <p className="inventory-info">
+      Selling Price: {inventoryData.selling_price}
+      </p>
 
       {/* New price Updater */}
       <div className="quantity-updater">

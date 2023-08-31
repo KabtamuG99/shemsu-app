@@ -19,12 +19,13 @@ async function checkinventory(data) {
 async function adder(data) {
   let createdinv = {};
   try {
-    const query = `INSERT INTO inventory(inventory_name, quantity, inventory_price,post_id) VALUES (?, ?, ?,?)`;
+    const query = `INSERT INTO inventory(inventory_name, quantity, purchasing_price,selling_price,post_id) VALUES (?, ?, ?,?,?)`;
     const [rows] = await pool.query(query, [
       data.inventory_name,
       data.quantity,
-      data.inventory_price,
-      data.post_id
+      data.purchasing_price,
+      data.selling_price,
+      data.post_id,
     ]);
 
     let inveId = rows.insertId;
@@ -47,7 +48,7 @@ console.log(rows);
 async function getAllinventory() {
   try {
     const [rows] = await pool.query(
-      `SELECT inventory_id, inventory_name, quantity, inventory_added_date, inventory_price, post_id
+      `SELECT inventory_id, inventory_name, quantity, inventory_added_date, purchasing_price,selling_price, post_id
        FROM inventory
        ORDER BY inventory_id DESC`
     );
