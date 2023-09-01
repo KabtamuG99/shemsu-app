@@ -38,6 +38,9 @@ const InventoryList = () => {
             >
               View Details
             </Link>
+            <Link to={`/Sales/${item.post_id}`} className="view-sale-link">
+              Sale Item
+            </Link>
           </li>
         ))}
       </ul>

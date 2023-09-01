@@ -32,8 +32,12 @@ let sale = `CREATE TABLE IF NOT EXISTS sale(
     sale_id INT AUTO_INCREMENT,
     inventory_id INT NOT NULL,
     inventory_name VARCHAR(255),
-    inventory_price INT,
-    sold_quantity INT,
+    customer_first_name VARCHAR(255) NOT NULL,
+    customer_last_name VARCHAR(255) NOT NULL,
+    payment_type VARCHAR(255) NOT NULL,
+    selling_price INT,
+    sold_quantity INT NOT NULL,
+    sales_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (sale_id),
     FOREIGN KEY (inventory_id) REFERENCES inventory(inventory_id)
     

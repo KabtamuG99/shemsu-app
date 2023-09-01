@@ -1,0 +1,83 @@
+
+
+.inventory-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.detail-heading {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.inventory-detail {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
+  background-color: #fff;
+}
+
+.inventory-name {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.inventory-info {
+  margin-bottom: 5px;
+}
+
+.customer-sales-form {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.customer-sales-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.customer-sales-form input,
+.customer-sales-form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.customer-sales-form select {
+  cursor: pointer;
+}
+
+.customer-sales-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.customer-sales-form button:hover {
+  background-color: #0056b3;
+}
+
+.sold-quantity-input {
+  position: relative;
+}
+
+.quantity-error {
+  color: red;
+  margin-top: 5px;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+}

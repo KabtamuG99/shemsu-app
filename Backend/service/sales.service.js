@@ -2,12 +2,15 @@ const pool = require("../config/dbconfig");
 async function adder(data) {
   let createdinv = {};
   try {
-    const query = `INSERT INTO sale(inventory_id, inventory_name, inventory_price ,sold_quantity) VALUES (?, ?, ?,?)`;
+    const query = `INSERT INTO sale(inventory_id, inventory_name,customer_first_name,customer_last_name,payment_type, selling_price ,sold_quantity) VALUES (?, ?, ?, ?, ?, ?, ?)`;
     const [rows] = await pool.query(query, [
       data.inventory_id,
       data.inventory_name,
-      data.inventory_price,
-      data.sold_quantity
+      data.customer_first_name,
+      data.customer_last_name,
+      data.payment_type,
+      data.selling_price,
+      data.sold_quantity,
     ]);
 
     let inveId = rows.insertId;

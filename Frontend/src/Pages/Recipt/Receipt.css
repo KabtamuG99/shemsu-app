@@ -1,0 +1,27 @@
+/* Receipt.css */
+
+.receipt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.receipt-content {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
+  background-color: #fff;
+}
+
+.receipt-content h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.receipt-content p {
+  margin: 5px 0;
+}
