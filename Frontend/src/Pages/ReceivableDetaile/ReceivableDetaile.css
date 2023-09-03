@@ -53,3 +53,6 @@ input[type="number"] {
 .update-transaction-button:hover {
   background-color: #0056b3;
 }
+.payment-error{
+color: red;
+}

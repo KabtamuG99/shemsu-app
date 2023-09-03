@@ -2,7 +2,10 @@ const pool = require("../config/dbconfig");
 async function getAllcreditdata() {
   try {
     const [rows] = await pool.query(
-      `SELECT sale_id,inventory_name,customer_first_name,customer_last_name,total,payment_type,remaining_balance,sales_date FROM sale WHERE payment_type IN ('on_account', 'partially-paied')`
+      `SELECT sale_id, inventory_name, customer_first_name, customer_last_name, total, payment_type, remaining_balance, sales_date
+FROM sale
+WHERE payment_type IN ('on_account', 'partially-paied')
+ORDER BY sales_date DESC`
     );
     return rows;
   } catch (err) {

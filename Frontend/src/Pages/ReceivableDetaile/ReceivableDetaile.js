@@ -8,6 +8,7 @@ function ReceivableDetaile() {
   const [transaction, setTransaction] = useState({});
   const [paymentType, setPaymentType] = useState("paied");
   const [partialAmount, setPartialAmount] = useState("");
+    const [paymentError, setpaymentError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,6 +37,19 @@ function ReceivableDetaile() {
   };
 
   const handleUpdateTransaction = () => {
+      if (
+        transaction.remaining_balance < partialAmount ||
+        transaction.transaction < partialAmount
+      ) {
+        setpaymentError(
+          "partial payment has to be less or equal to amount owed"
+        );
+        return;
+      }
+
+
+
+
     let updatedRemainingBalance = transaction.remaining_balance;
     if (paymentType === "partially-paied" && partialAmount !== "") {
       updatedRemainingBalance -= partialAmount;
@@ -53,12 +67,13 @@ function ReceivableDetaile() {
       .put(`http://localhost:4000/update-receivable/${id}`, dataToUpdate)
       .then((response) => {
         if (response.status === 200) {
-          navigate("/Recivable");
+          navigate("/Receivable");
         }
       })
       .catch((error) => {
         console.error("Error updating transaction:", error);
       });
+
   };
   return (
     <div className="receivable-detail-container">
@@ -76,7 +91,7 @@ function ReceivableDetaile() {
             {`${transaction.customer_first_name} ${transaction.customer_last_name}`}
             <br />
             <strong className="sales-label">Total owed:</strong> $
-            {transaction.total}
+            {transaction.remaining_balance}
             <br />
             <strong className="sales-label">Sales Date:</strong>
             {new Date(transaction.sales_date).toLocaleDateString()}
@@ -103,6 +118,7 @@ function ReceivableDetaile() {
                 />
               </label>
             )}
+            {paymentError && <p className="payment-error">{paymentError}</p>}
             <button
               className="update-transaction-button"
               onClick={handleUpdateTransaction}
