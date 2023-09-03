@@ -3,7 +3,7 @@ const serviceupdator = require("../service/updateinv.service");
 async function quantityUpdator(req, res) {
   const id = req.params.id;
   const { quantity} = req.body; // Get quantity and price from the request body
-  console.log("updator" + id);
+  console.log("updator " + id);
 
   try {
     const adjust = await serviceupdator.quantityUpdator(id, quantity);

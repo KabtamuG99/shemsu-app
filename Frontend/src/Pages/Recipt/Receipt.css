@@ -25,3 +25,19 @@
 .receipt-content p {
   margin: 5px 0;
 }
+
+.print-button {
+  display: block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background-color: #0056b3;
+}
+

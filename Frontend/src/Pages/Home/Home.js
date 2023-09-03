@@ -3,26 +3,31 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Home.css"
 
 function Home() {
-    const navigate = useNavigate()
-    const handleEmployee = (e)=>{
-        e.preventDefault()
-        navigate("/addemployee");
-    }
-     const handleinventory = (e) => {
-       e.preventDefault();
-       navigate("/addinventory");
-     };
-     const listInve = (e) => {
-       e.preventDefault();
-       navigate("/InventoryList");
-     };
-    //  const singleInv = (e) => {
-    //    e.preventDefault();
-    //    navigate("/singleItem");
-    //  };
-     const Return = (e) =>{
-        navigate("/");
-     }
+  const navigate = useNavigate();
+  const handleEmployee = (e) => {
+    e.preventDefault();
+    navigate("/addemployee");
+  };
+  const handleinventory = (e) => {
+    e.preventDefault();
+    navigate("/addinventory");
+  };
+  const listInve = (e) => {
+    e.preventDefault();
+    navigate("/InventoryList");
+  };
+   const handeleStatement = (e) => {
+     e.preventDefault();
+     navigate("/Statement");
+   };
+      const handleReceivable = (e) => {
+        e.preventDefault();
+        navigate("/Receivable");
+      };
+   ;
+  const Return = (e) => {
+    navigate("/");
+  };
   return (
     <div>
       <h1>Home</h1>
@@ -37,9 +42,12 @@ function Home() {
         <button className="button" onClick={listInve}>
           avilable inventory
         </button>
-        {/* <button className="button" onClick={singleInv}>
-          single inventory
-        </button> */}
+        <button className="button" onClick={handeleStatement}>
+          Statement
+        </button>
+        <button className="button" onClick={handleReceivable}>
+          Receivable
+        </button>
         <button className="button" onClick={Return}>
           Return
         </button>

@@ -12,7 +12,6 @@ async function sale(req, res, next) {
       });
       console.log(filldata);
     } else filldata === true;
-    console.log("filde" + filldata);
     res.status(200).json({
       status: "true",
       message: "sales data added successfully",

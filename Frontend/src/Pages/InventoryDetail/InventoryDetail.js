@@ -33,6 +33,7 @@ const InventoryDetail = () => {
       alert("Quantity updated succesfuly");
       navigate("/");
   };
+  
   const handlePriceUpdate = () => {
     axios
       .put(`http://localhost:4000/update-price/${id}`, {

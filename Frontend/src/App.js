@@ -4,7 +4,10 @@ import AddInventory from "./Pages/AddInventory/AddInventory";
 import InventoryList from "./Pages/Inventory/InventoryList";
 import InventoryDetail from "./Pages/InventoryDetail/InventoryDetail";
 import Sales from "./Pages/Sales/Sales";
+import Statement from "./Pages/Statement/Statement";
 import Receipt from "./Pages/Recipt/Receipt";
+import Receivable from "./Pages/Receivables/Receivable";
+import ReceivableDetaile from "./Pages/ReceivableDetaile/ReceivableDetaile";
 import Home from "./Pages/Home/Home";
 import { Routes, Route } from "react-router-dom";
 
@@ -19,6 +22,9 @@ function App() {
           <Route path="/InventoryList" element={<InventoryList />} />
           <Route path="/single-inventory/:id" element={<InventoryDetail />} />
           <Route path="/Sales/:id" element={<Sales />} />
+          <Route path="/Statement" element={<Statement />} />
+          <Route path="/Receivable" element={<Receivable />} />
+          <Route path="/Receivable/:id" element={<ReceivableDetaile />} />
           <Route path="/Receipt" element={<Receipt />} />
         </Routes>
       </>

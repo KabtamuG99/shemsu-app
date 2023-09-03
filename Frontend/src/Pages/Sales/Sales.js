@@ -13,6 +13,7 @@ function Sales() {
     payment_type: "cash",
     sold_quantity: 0, // Default value
   });
+  console.log(customerData);
   const [quantityError, setQuantityError] = useState("");
   const navigate = useNavigate();
 
@@ -41,48 +42,71 @@ function Sales() {
   };
 
 
-  const  handleFormSubmit = async (e) => {
-    e.preventDefault();
+ const handleFormSubmit = async (e) => {
+   e.preventDefault();
 
-    if (customerData.sold_quantity > inventoryData.quantity) {
-      setQuantityError(
-        "Required Quantity has to be less than available quantity"
-      );
-      return;
-    }
+   if (customerData.sold_quantity > inventoryData.quantity) {
+     setQuantityError(
+       "Required Quantity has to be less than available quantity"
+     );
+     return;
+   }
 
-    const {
-      customer_first_name,
-      customer_last_name,
-      payment_type,
-      sold_quantity,
-    } = customerData;
-    const { inventory_id, inventory_name, selling_price } = inventoryData;
+   const {
+     customer_first_name,
+     customer_last_name,
+     payment_type,
+     sold_quantity,
+   } = customerData;
+   const { inventory_id, inventory_name, selling_price } = inventoryData;
 
-    const saleData = {
-      customer_first_name,
-      customer_last_name,
-      payment_type,
-      sold_quantity,
-      inventory_id,
-      inventory_name,
-      selling_price,
-    };
-    const updatedQuantity = inventoryData.quantity - sold_quantity;
-    console.log(updatedQuantity);
+   // Calculate the total
+   let saleData=""
+   const total = selling_price * sold_quantity;
 
-     try {
-      await axios.post("http://localhost:4000/sales-data", saleData);
+   // Check payment_type and adjust the total accordingly
+   if (payment_type === "on_account") {
+     // Add a negative total for on_account sales
+     const remaining_balance = total;
+     saleData = {
+       customer_first_name,
+       customer_last_name,
+       payment_type,
+       sold_quantity,
+       inventory_id,
+       inventory_name,
+       selling_price,
+       total,
+       remaining_balance,
+     };
+   } else {
+     saleData = {
+       customer_first_name,
+       customer_last_name,
+       payment_type,
+       sold_quantity,
+       inventory_id,
+       inventory_name,
+       selling_price,
+       total,
+     };
+   }
 
-      await axios.put(`http://localhost:4000/update-quantity/${id}`, {
-        quantity: updatedQuantity,
-      });
+   const updatedQuantity = inventoryData.quantity - sold_quantity;
+   console.log(updatedQuantity);
 
-      navigate("/Receipt", { state: { saleData } }); // Pass saleData as state
-    } catch (error) {
-      console.error("Error submitting sale data:", error);
-    }
-  };
+   try {
+     await axios.post("http://localhost:4000/sales-data", saleData);
+
+     await axios.put(`http://localhost:4000/update-quantity/${id}`, {
+       quantity: updatedQuantity,
+     });
+
+     navigate("/Receipt", { state: { saleData } }); // Pass saleData as state
+   } catch (error) {
+     console.error("Error submitting sale data:", error);
+   }
+ };
 
   return (
     <div className="inventory-detail-container">
@@ -97,7 +121,7 @@ function Sales() {
         <p className="inventory-info">
           Selling Price: {inventoryData.selling_price}
         </p>
-        <p className="inventory-info">ID: {inventoryData.inventory_id}</p>
+        <p className="inventory-info">ID: {inventoryData.post_id}</p>
       </div>
 
       {/* Customer Sales Form */}
