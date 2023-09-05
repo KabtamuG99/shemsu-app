@@ -13,7 +13,8 @@ let employee = `CREATE TABLE IF NOT EXISTS employee(
     user_name VARCHAR(255) NOT NULL,
     user_email VARCHAR(255) NOT NULL,
     user_password VARCHAR(255) NOT NULL,
-    PRIMARY KEY (user_id)
+    PRIMARY KEY (user_id),
+    UNIQUE KEY (user_email)
 )`;
 
 let inventory = `CREATE TABLE IF NOT EXISTS inventory(

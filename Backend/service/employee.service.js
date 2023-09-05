@@ -1,5 +1,6 @@
 const pool = require("../config/dbconfig");
 
+
 async function adder(data) {
   console.log(data);
    const employeprofile = {};

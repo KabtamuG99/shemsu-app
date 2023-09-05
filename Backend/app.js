@@ -33,11 +33,6 @@ app.use(receivablerouter);
 app.use(updateReceivables);
 
 
-
-
-
-
-
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
 });

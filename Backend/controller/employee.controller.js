@@ -16,6 +16,7 @@ async function employee(req, res, next) {
         message: "Employee added successfully",
       });
     
+    
     // Include the "res.end()" statement outside of the "if" blocks
     // res.end("Successfully added"); // You can customize this message
   } catch (error) {
